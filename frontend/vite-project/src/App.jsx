@@ -15,7 +15,7 @@ const App = () => {
   const updatedata = async (id) => {
     const newname = prompt("Enter New Name");
     const newage = prompt("Enter New Age");
-    const data = await axios.put(`https://mernstack2.onrender.com/${id}`, { name: newname, age: newage });
+    const data = await axios.put(`https://mernstack2.onrender.com/update/${id}`, { name: newname, age: newage });
     console.log(data);
     setList(list.map((val)=>{
       return val._id==id? {_id:id,name:newname,age:newage}:val
@@ -23,7 +23,7 @@ const App = () => {
   };
 
   const deletedata = async (id) => {
-    const data = await axios.delete(`https://mernstack2.onrender.com/${id}`);
+    const data = await axios.delete(`https://mernstack2.onrender.com/delete/${id}`);
     console.log(data);
     setList(list.filter((val)=>{
       return val._id !== id;
